@@ -8,9 +8,9 @@ var fn_index = async(ctx, next) => {
 }
 var fn_login = async(ctx, next) => {
     console.log('fn_login--------');
-    let name = ctx.request.body.name || '',
+    var name = ctx.request.body.name || '',
         password = ctx.request.body.password || '';
-    console.log(`${name},${password}`);
+    console.log(`---${name},---${password}`);
     if (name === 'koa' && password === '1234') {
         ctx.response.body = `<h1>登录成功:${name}</h1>`
     } else {
@@ -20,6 +20,6 @@ var fn_login = async(ctx, next) => {
     }
 }
 module.exports = {
-    'GET /': fn_index,
-    'POST /login': fn_login
+    'POST/login': fn_login,
+    'GET/': fn_index
 }

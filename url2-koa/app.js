@@ -1,7 +1,7 @@
 const Koa = require('koa');
 const app = new Koa();
 const bodyParser = require('koa-bodyparser');
-const controllers = require('./controllers')
+const controllers = require('./controller')
 app.use(async(ctx, next) => {
     console.log(`Process ${ctx.request.method} ${ctx.request.url}...`);
     await next();

@@ -23,13 +23,14 @@ const fs = require('fs');
 function addMaps(router, maps) {
     for (const url in maps) {
         if (url.startsWith('GET')) {
-            let path = url.substring(4);
+            let path = url.substring(3);
             console.log(maps[url]);
             router.get(path, maps[url]);
             console.log(`GET---${path}`);
         } else if (url.startsWith('POST')) {
-            let path = url.substring(5);
-            router.get(path, maps[url]);
+            let path = url.substring(4);
+            console.log(maps[url]);
+            router.post(path, maps[url]);
             console.log(`POST---${path}`);
         } else if (url.startsWith('PUT ')) {
             var path = url.substring(4);
